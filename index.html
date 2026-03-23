@@ -61,7 +61,7 @@
         }
 
         .card {
-            max-width: 650px;
+            max-width: 700px;
             width: 100%;
             background: rgba(255, 255, 255, 0.96);
             border-radius: 48px;
@@ -79,18 +79,18 @@
         .image-container {
             background: linear-gradient(135deg, #fbc4d0, #ffd0de);
             text-align: center;
-            padding: 40px 20px;
+            padding: 50px 20px;
             border-bottom: 4px solid #ffb7c5;
         }
 
         .cute-pic {
-            max-width: 380px;
-            width: 85%;
-            border-radius: 40px;
-            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.15);
+            max-width: 500px;
+            width: 90%;
+            border-radius: 50px;
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
             transition: all 0.3s;
             background: white;
-            padding: 10px;
+            padding: 12px;
             object-fit: cover;
             aspect-ratio: 1 / 1;
         }
@@ -199,6 +199,7 @@
             background: #c97e9a;
             margin-top: 20px;
             box-shadow: 0 4px 12px rgba(201, 126, 154, 0.3);
+            position: relative;
         }
 
         .surprise-btn:hover {
@@ -226,7 +227,8 @@
         }
 
         .find-differences {
-            margin-top: 25px;
+            margin-top: 15px;
+            margin-bottom: 25px;
             background: #fff8e8;
             border-radius: 28px;
             padding: 20px;
@@ -243,19 +245,20 @@
         .differences-images {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 25px;
             flex-wrap: wrap;
             margin-bottom: 15px;
         }
 
         .differences-img {
-            width: 150px;
-            height: 150px;
+            width: 180px;
+            height: 180px;
             object-fit: cover;
-            border-radius: 24px;
+            border-radius: 30px;
             border: 3px solid #ffb7c5;
             box-shadow: 0 8px 16px rgba(0,0,0,0.1);
             transition: transform 0.2s;
+            background: #f5f5f5;
         }
 
         .differences-img:hover {
@@ -273,19 +276,20 @@
             margin-top: 25px;
             display: flex;
             justify-content: center;
-            gap: 16px;
+            gap: 18px;
             flex-wrap: wrap;
         }
 
         .gallery-img {
-            width: 110px;
-            height: 110px;
+            width: 130px;
+            height: 130px;
             object-fit: cover;
-            border-radius: 28px;
+            border-radius: 32px;
             border: 3px solid #ffb7c5;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
             transition: transform 0.2s;
             cursor: pointer;
+            background: #f5f5f5;
         }
 
         .gallery-img:hover {
@@ -309,6 +313,28 @@
         @keyframes pulse {
             0% { transform: scale(1); opacity: 0.7;}
             100% { transform: scale(1.15); opacity: 1;}
+        }
+
+        /* СТРЕЛОЧКА ВНИЗ */
+        .arrow-down {
+            text-align: center;
+            margin: 10px 0 5px;
+            animation: bounce 1.5s infinite;
+            cursor: pointer;
+        }
+
+        .arrow-down span {
+            font-size: 2.2rem;
+            display: inline-block;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(10px);
+            }
         }
 
         .modal {
@@ -374,11 +400,10 @@
             display: inline-block;
         }
 
-        /* Анимированное сердечко */
         .floating-heart {
             position: fixed;
             color: #ff4d6d;
-            font-size: 30px;
+            font-size: 35px;
             pointer-events: none;
             z-index: 2000;
             animation: flyHeart 1.5s ease-out forwards;
@@ -390,16 +415,16 @@
                 opacity: 1;
             }
             50% {
-                transform: scale(1.2) translateY(-50px);
+                transform: scale(1.3) translateY(-60px);
                 opacity: 1;
             }
             100% {
-                transform: scale(0.5) translateY(-150px);
+                transform: scale(0.6) translateY(-180px);
                 opacity: 0;
             }
         }
 
-        @media (max-width: 500px) {
+        @media (max-width: 600px) {
             .content {
                 padding: 25px 18px;
             }
@@ -413,16 +438,19 @@
                 font-size: 1.1rem;
             }
             .cute-pic {
-                max-width: 280px;
-                width: 90%;
+                max-width: 320px;
+                width: 95%;
             }
             .gallery-img {
-                width: 75px;
-                height: 75px;
+                width: 85px;
+                height: 85px;
             }
             .differences-img {
-                width: 110px;
-                height: 110px;
+                width: 130px;
+                height: 130px;
+            }
+            .arrow-down span {
+                font-size: 1.6rem;
             }
         }
     </style>
@@ -459,6 +487,19 @@
             <p>🤍 Вы — мой любимый человек</p>
         </div>
 
+        <!-- БЛОК "НАЙДИ 5 ОТЛИЧИЙ" ПОД "🤍 Вы — мой любимый человек" -->
+        <div class="find-differences">
+            <h3>🔍 Найди 5 отличий 🔍</h3>
+            <div class="differences-images">
+                <img class="differences-img" src="assets/mashacat.jpg" alt="картинка 1" onerror="this.src='https://cdn.pixabay.com/photo/2017/11/14/13/06/kitty-2948404_640.jpg'">
+                <img class="differences-img" src="assets/masha.jpg" alt="картинка 2" onerror="this.src='https://cdn.pixabay.com/photo/2019/08/19/07/55/corgi-4415649_640.jpg'">
+            </div>
+            <div class="differences-text">
+                💭 Посмотри внимательно на эти две картинки.<br>
+                В них есть 5 отличий. Найдёшь все? 👀
+            </div>
+        </div>
+
         <div class="compliment-box">
             <span style="font-size: 1.8rem;">💭</span>
             <div class="compliment-text" id="complimentDisplay">
@@ -467,52 +508,27 @@
             <button id="newComplimentBtn">🎀 Ещё комплимент 🎀</button>
         </div>
 
-        <div class="compliment-list">
-            <p><span class="emoji-big">🌸</span> Вы невероятно красивая, даже когда сердитесь</p>
-            <p><span class="emoji-big">🍰</span> С вами даже обычный день становится праздником</p>
-            <p><span class="emoji-big">☁️</span> Вы как тёплое одеяло — уют и спокойствие</p>
-            <p><span class="emoji-big">🐇</span> Вы самая милая и искренняя, кого я знаю</p>
-            <p><span class="emoji-big">🌙</span> Рядом с вами даже ночь становится спокойной. Спокойная ночь только с вами в кроватки</p>
-            <p><span class="emoji-big">🍫</span> Вы как любимая конфета — хочется снова и снова</p>
-            <p><span class="emoji-big">📖</span> С вами хочется делиться даже самыми глупыми мыслями</p>
-            <p><span class="emoji-big">⭐</span> Вы самая красивая и самое любимое солнышко</p>
-            <p><span class="emoji-big">🌹</span> Ваша забота согревает даже в самые холодные дни</p>
-            <p><span class="emoji-big">🎨</span> Вы как художник — делаете этот мир красивее</p>
-            <p><span class="emoji-big">🕊️</span> С вами чувствуешь настоящий покой и безопасность</p>
-            <p><span class="emoji-big">🍀</span> С вами мне всегда везёт — это точно судьба</p>
-            <p><span class="emoji-big">🍯</span> Вы сладкая, как мёд, и такая же полезная для души</p>
-            <p><span class="emoji-big">✨</span> Вы — моя главная удача в этой жизни</p>
-        </div>
-
-        <!-- БЛОК: НАЙДИ 5 ОТЛИЧИЙ -->
-        <div class="find-differences">
-            <h3>🔍 Найди 5 отличий 🔍</h3>
-            <div class="differences-images">
-                <img class="differences-img" src="assets/cat.png" alt="картинка 1">
-                <img class="differences-img" src="assets/masha.jpg" alt="картинка 2">
-            </div>
-            <div class="differences-text">
-                💭 Посмотри внимательно на эти две картинки.<br>
-                В них есть 5 отличий. Найдёшь все? 👀
-            </div>
-        </div>
-
-        <!-- ГАЛЕРЕЯ ПОД КОМПЛИМЕНТАМИ -->
+        <!-- ГАЛЕРЕЯ ПОД КНОПКОЙ "Ещё комплимент" -->
         <div class="image-gallery" id="imageGallery">
-            <img class="gallery-img" src="assets/cat.jpg" alt="милое фото">
-            <img class="gallery-img" src="assets/formi.jpg" alt="милое фото">
-            <img class="gallery-img" src="assets/love.jpg" alt="милое фото">
-            <img class="gallery-img" src="assets/lublly.jpg" alt="милое фото">
-            <img class="gallery-img" src="assets/natebya.jpg" alt="милое фото">
-            <img class="gallery-img" src="assets/obnimashki.jpg" alt="милое фото">
-            <img class="gallery-img" src="assets/shactie.jpg" alt="милое фото">
-            <img class="gallery-img" src="assets/tebe.jpg" alt="милое фото">
-            <img class="gallery-img" src="assets/ti.jpg" alt="милое фото">
-            <img class="gallery-img" src="assets/us.jpg" alt="милое фото">
+            <img class="gallery-img" src="assets/cat.jpg" alt="милое фото" onerror="this.src='https://cdn.pixabay.com/photo/2017/11/14/13/06/kitty-2948404_640.jpg'">
+            <img class="gallery-img" src="assets/formi.jpg" alt="милое фото" onerror="this.src='https://cdn.pixabay.com/photo/2019/08/19/07/55/corgi-4415649_640.jpg'">
+            <img class="gallery-img" src="assets/love.jpg" alt="милое фото" onerror="this.src='https://cdn.pixabay.com/photo/2021/11/19/19/52/panda-6810197_640.jpg'">
+            <img class="gallery-img" src="assets/lublly.jpg" alt="милое фото" onerror="this.src='https://cdn.pixabay.com/photo/2016/03/31/20/25/rabbit-1296408_640.png'">
+            <img class="gallery-img" src="assets/natebya.jpg" alt="милое фото" onerror="this.src='https://cdn.pixabay.com/photo/2020/07/02/19/21/bear-5364484_640.jpg'">
+            <img class="gallery-img" src="assets/obnimashki.jpg" alt="милое фото" onerror="this.src='https://cdn.pixabay.com/photo/2017/01/20/14/54/hedgehog-1994638_640.jpg'">
+            <img class="gallery-img" src="assets/shactie.jpg" alt="милое фото" onerror="this.src='https://cdn.pixabay.com/photo/2015/11/17/13/13/puppy-1047521_640.jpg'">
+            <img class="gallery-img" src="assets/tebe.jpg" alt="милое фото" onerror="this.src='https://cdn.pixabay.com/photo/2017/11/14/13/06/kitty-2948404_640.jpg'">
+            <img class="gallery-img" src="assets/ti.jpg" alt="милое фото" onerror="this.src='https://cdn.pixabay.com/photo/2019/08/19/07/55/corgi-4415649_640.jpg'">
+            <img class="gallery-img" src="assets/us.jpg" alt="милое фото" onerror="this.src='https://cdn.pixabay.com/photo/2021/11/19/19/52/panda-6810197_640.jpg'">
         </div>
 
         <div class="footer-message">
             <span class="heart">❤️</span>  Я рядом и всегда готов всё исправить  <span class="heart">❤️</span>
+        </div>
+
+        <!-- СТРЕЛОЧКА ВНИЗ К СЮРПРИЗУ -->
+        <div class="arrow-down" id="arrowDown">
+            <span>👇</span>
         </div>
 
         <button id="surpriseBtn" class="surprise-btn">🎁 СЮРПРИЗ 🎁</button>
@@ -529,23 +545,27 @@
 
 <script>
     const compliments = [
-        "С вами так спокойно и хорошо, как дома",
-        "Я скучаю, когда вас нет рядом",
+        "С Вами так спокойно и хорошо, как дома",
+        "Я скучаю, когда Вас нет рядом",
         "У Вас очень тёплая улыбка, от неё на душе светлее",
+        "Вы умеете слушать — это редкий дар",
+        "С Вами легко быть собой, не притворяться",
         "Вы самая красивая",
-        "Я ценю ваше терпение, хоть иногда и испытываю его",
+        "Я ценю Ваше терпение, хоть иногда и испытываю его",
         "Вы — человек, рядом с которым хочется расти",
         "Ваши глаза такие глубокие, в них хочется смотреть вечно",
-        "Ваши сисюлечки очень красивые и хорошие, так и хочется в них утонуть",
         "Вы умеете сделать день лучше просто своим присутствием",
-        "С вами даже молчать комфортно",
+        "Мне нравится, как вы смеётесь над моими шутками",
+        "С Вами даже молчать комфортно",
         "Вы — моя опора, хотя сама об этом не знаете",
         "Вы всегда знаете, что сказать, когда мне плохо",
-        "Рядом с вами я становлюсь лучше — это правда",
+        "Рядом с Вами я становлюсь лучше — это правда",
         "Вы — лучшее, что со мной случилось за последнее время",
+        "Мне нравится, какая вы разная: серьёзная и смешливая, уставшая и энергичная",
         "Вы умеете прощать — и я это очень ценю",
         "С Вами хочется делиться всем: радостью, грустью, глупыми мыслями",
-        "Я люблю вас не за что-то, а просто потому что вы — это вы"
+        "Вы не идеальны, и мне это нравится — потому что я тоже нет",
+        "Я люблю Вас не за что-то, а просто потому что Вы — это Вы"
     ];
 
     const images = [
@@ -561,17 +581,16 @@
         "assets/us.jpg"
     ];
 
-    let currentImgIndex = 0;
+    let currentIndex = 0;
 
     const complimentEl = document.getElementById("complimentDisplay");
-    const imgEl = document.getElementById("cuteImage");
     const btnCompliment = document.getElementById("newComplimentBtn");
     const surpriseBtn = document.getElementById("surpriseBtn");
     const modal = document.getElementById("surpriseModal");
     const closeModalBtn = document.getElementById("closeModalBtn");
     const gallery = document.getElementById("imageGallery");
+    const arrowDown = document.getElementById("arrowDown");
 
-    // ФУНКЦИЯ ДЛЯ СОЗДАНИЯ ПАДАЮЩЕГО СЕРДЕЧКА
     function createHeart(x, y) {
         const heart = document.createElement("div");
         heart.className = "floating-heart";
@@ -585,14 +604,13 @@
         }, 1500);
     }
 
-    // ФУНКЦИЯ ДЛЯ СОЗДАНИЯ МНОЖЕСТВА СЕРДЕЧЕК
     function createHearts() {
-        for (let i = 0; i < 15; i++) {
+        for (let i = 0; i < 20; i++) {
             setTimeout(() => {
                 const x = Math.random() * window.innerWidth;
                 const y = window.innerHeight / 2 + Math.random() * 200;
                 createHeart(x, y);
-            }, i * 80);
+            }, i * 60);
         }
     }
 
@@ -605,16 +623,15 @@
         if (!gallery) return;
         let indices = [];
         for (let i = 0; i < 5; i++) {
-            indices.push((currentImgIndex + i) % images.length);
+            indices.push((currentIndex + i) % images.length);
         }
         gallery.innerHTML = indices.map(idx => 
-            `<img class="gallery-img" src="${images[idx]}" alt="милое фото">`
+            `<img class="gallery-img" src="${images[idx]}" alt="милое фото" onerror="this.src='https://cdn.pixabay.com/photo/2017/11/14/13/06/kitty-2948404_640.jpg'">`
         ).join('');
     }
 
-    function changeImage() {
-        currentImgIndex = (currentImgIndex + 1) % images.length;
-        imgEl.src = images[currentImgIndex];
+    function changeGalleryOnly() {
+        currentIndex = (currentIndex + 1) % images.length;
         updateGallery();
     }
 
@@ -624,12 +641,12 @@
 
     function closeModal() {
         modal.style.display = "none";
-        createHearts(); // При нажатии "Хорошо" рисуем сердечки
+        createHearts();
     }
 
     btnCompliment.addEventListener("click", () => {
         complimentEl.textContent = getRandomCompliment();
-        changeImage();
+        changeGalleryOnly();
         btnCompliment.style.transform = "scale(0.97)";
         setTimeout(() => {
             btnCompliment.style.transform = "";
@@ -639,34 +656,35 @@
     surpriseBtn.addEventListener("click", openModal);
     closeModalBtn.addEventListener("click", closeModal);
 
+    // Прокрутка к сюрпризу при клике на стрелочку
+    arrowDown.addEventListener("click", () => {
+        surpriseBtn.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+
     window.addEventListener("click", (event) => {
         if (event.target === modal) {
             closeModal();
         }
     });
 
-    // СОЗДАНИЕ ФОНОВЫХ СЕРДЕЧЕК
     function createBackgroundHearts() {
         const bgContainer = document.getElementById("bgHearts");
         const heartSymbols = ["❤️", "💗", "💖", "💕", "💓", "🌸", "🌺"];
         
-        for (let i = 0; i < 35; i++) {
+        for (let i = 0; i < 45; i++) {
             const heart = document.createElement("div");
             heart.className = "bg-heart";
             heart.innerHTML = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
             heart.style.left = Math.random() * 100 + "%";
             heart.style.animationDelay = Math.random() * 15 + "s";
-            heart.style.animationDuration = 10 + Math.random() * 10 + "s";
-            heart.style.fontSize = 15 + Math.random() * 25 + "px";
-            heart.style.opacity = 0.15 + Math.random() * 0.2;
+            heart.style.animationDuration = 10 + Math.random() * 12 + "s";
+            heart.style.fontSize = 15 + Math.random() * 30 + "px";
+            heart.style.opacity = 0.15 + Math.random() * 0.25;
             bgContainer.appendChild(heart);
         }
     }
 
-    // Инициализация
     complimentEl.textContent = getRandomCompliment();
-    imgEl.src = "assets/cat.jpg";
-    currentImgIndex = 0;
     updateGallery();
     createBackgroundHearts();
 </script>
