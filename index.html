@@ -60,7 +60,7 @@
         }
 
         .card {
-            max-width: 900px;
+            max-width: 1000px;
             width: 100%;
             background: rgba(255, 255, 255, 0.96);
             border-radius: 48px;
@@ -300,16 +300,59 @@
             border-color: #ff9ab3;
         }
 
+        /* НОВЫЙ БЛОК - МОЯ САМАЯ ЛЮБИМАЯ КРАСИВАЯ ДЕВОЧКА */
+        .favorite-girl {
+            margin-top: 35px;
+            text-align: center;
+        }
+
+        .favorite-girl h2 {
+            font-size: 1.8rem;
+            color: #d44c6f;
+            margin-bottom: 25px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #d44c6f, #ff9ab3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .favorite-gallery {
+            display: flex;
+            justify-content: center;
+            gap: 35px;
+            flex-wrap: wrap;
+        }
+
+        .favorite-img {
+            width: 320px;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 60px;
+            border: 5px solid #ffb7c5;
+            box-shadow: 0 20px 35px rgba(0,0,0,0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            background: #f5f5f5;
+        }
+
+        .favorite-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 28px 45px rgba(0,0,0,0.25);
+            border-color: #ff9ab3;
+        }
+
         .footer-message {
             text-align: center;
-            margin-top: 28px;
-            font-size: 0.9rem;
+            margin-top: 35px;
+            font-size: 1.3rem;
             color: #c28299;
-            font-weight: 500;
+            font-weight: 600;
+            letter-spacing: 0.5px;
         }
 
         .heart {
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             animation: pulse 1.4s infinite;
             display: inline-block;
         }
@@ -427,7 +470,6 @@
             }
         }
 
-        /* Стиль для увеличенного изображения */
         .lightbox {
             display: none;
             position: fixed;
@@ -448,6 +490,13 @@
             object-fit: contain;
             border-radius: 20px;
             box-shadow: 0 0 30px rgba(255,255,255,0.3);
+        }
+
+        @media (max-width: 800px) {
+            .favorite-img {
+                width: 250px;
+                height: 250px;
+            }
         }
 
         @media (max-width: 700px) {
@@ -475,6 +524,13 @@
                 width: 180px;
                 height: 180px;
             }
+            .favorite-img {
+                width: 200px;
+                height: 200px;
+            }
+            .footer-message {
+                font-size: 1rem;
+            }
             .arrow-down span {
                 font-size: 2rem;
             }
@@ -490,6 +546,10 @@
             .gallery-img {
                 width: 130px;
                 height: 130px;
+            }
+            .favorite-img {
+                width: 160px;
+                height: 160px;
             }
         }
     </style>
@@ -546,10 +606,8 @@
             <button id="newComplimentBtn">🎀 Ещё комплимент 🎀</button>
         </div>
 
-        <!-- ГАЛЕРЕЯ ПОД КНОПКОЙ (БЕЗ cat.jpg) -->
-        <div class="image-gallery" id="imageGallery">
-            <!-- галерея будет заполняться через JavaScript -->
-        </div>
+        <!-- ГАЛЕРЕЯ ПОД КНОПКОЙ -->
+        <div class="image-gallery" id="imageGallery"></div>
 
         <!-- КОМПЛИМЕНТЫ ПОД ГАЛЕРЕЕЙ -->
         <div class="compliment-list">
@@ -561,12 +619,25 @@
             <p><span class="emoji-big">📖</span> С вами хочется делиться всем</p>
             <p><span class="emoji-big">⭐</span> Вы самая красивая и самое любимое солнышко</p>
             <p><span class="emoji-big">🌹</span> Ваша забота и подарки согревают, я это очень ценю, хоть может и не показываю</p>
-            <p><span class="emoji-big">🕊️</span> С вами чувствуешь настоящий покой и безопасность</p>
             <p><span class="emoji-big">🍀</span> С вами мне всегда везёт — это точно судьба</p>
             <p><span class="emoji-big">🍯</span> Вы сладкая, как мёд, и такая же полезная для души</p>
             <p><span class="emoji-big">✨</span> Вы — моя главная удача в этой жизни</p>
         </div>
 
+        <!-- НОВЫЙ БЛОК: МОЯ САМАЯ ЛЮБИМАЯ КРАСИВАЯ ДЕВОЧКА -->
+        <div class="favorite-girl">
+            <h2>🌟 Моя самая любимая красивая девочка 🌟</h2>
+            <div class="favorite-gallery">
+                <img class="favorite-img" src="assets/milka.jpg" alt="milka" onclick="openLightbox(this.src)">
+                <img class="favorite-img" src="assets/sexi.jpg" alt="sexi" onclick="openLightbox(this.src)">
+                <img class="favorite-img" src="assets/brovi.jpg" alt="brovi" onclick="openLightbox(this.src)">
+                <img class="favorite-img" src="assets/nutella.jpg" alt="nutella" onclick="openLightbox(this.src)">
+                <img class="favorite-img" src="assets/cloak.jpg" alt="cloak" onclick="openLightbox(this.src)">
+                <img class="favorite-img" src="assets/sisi.jpg" alt="sisi" onclick="openLightbox(this.src)">
+            </div>
+        </div>
+
+        <!-- УВЕЛИЧЕННЫЙ БЛОК "Я РЯДОМ И ВСЕГДА ГОТОВ ВСЁ ИСПРАВИТЬ" -->
         <div class="footer-message">
             <span class="heart">❤️</span>  Я рядом и всегда готов всё исправить  <span class="heart">❤️</span>
         </div>
@@ -587,13 +658,11 @@
     </div>
 </div>
 
-<!-- Лайтбокс для увеличенных изображений -->
 <div id="lightbox" class="lightbox" onclick="closeLightbox()">
     <img id="lightboxImg" src="">
 </div>
 
 <script>
-    // ВАШИ КОМПЛИМЕНТЫ
     const compliments = [
         "С вами так спокойно и хорошо, как дома",
         "Я скучаю, когда вас нет рядом",
@@ -614,7 +683,6 @@
         "Я люблю вас не за что-то, а просто потому что вы — это вы и главное душа"
     ];
 
-    // МАССИВ КАРТИНОК ДЛЯ ГАЛЕРЕИ (БЕЗ cat.jpg)
     const images = [
         "assets/formi.jpg",
         "assets/love.jpg",
@@ -637,7 +705,6 @@
     const gallery = document.getElementById("imageGallery");
     const arrowDown = document.getElementById("arrowDown");
 
-    // Функция для открытия увеличенного изображения
     function openLightbox(src) {
         const lightbox = document.getElementById("lightbox");
         const lightboxImg = document.getElementById("lightboxImg");
