@@ -313,7 +313,7 @@
 
 <div class="card">
     <div class="image-container">
-        <img id="cuteImage" class="cute-pic" src="https://cdn.pixabay.com/photo/2017/11/14/13/06/kitty-2948404_640.jpg" alt="милый котик">
+        <img id="cuteImage" class="cute-pic" src="assets/cat.jpg" alt="милая картинка" onerror="this.src='https://cdn.pixabay.com/photo/2017/11/14/13/06/kitty-2948404_640.jpg'">
     </div>
     <div class="content">
         <h1>Мария Владиславовна, простите меня 🌸</h1>
@@ -330,8 +330,8 @@
             <p>📝 <strong>Я правда сожалею...</strong></p>
             <p>Я не хотел вас расстраивать. Иногда слова бывают глупыми, вы заслуживаете только самого лучшего отношения, тепла и заботы.</p>
             <p>Мне правда стыдно за то, что вышло. Вы — важный человек в моей жизни, и я готов сделать всё, чтобы между нами снова было спокойно и мы любили друг друга.</p>
-            <p>Простите за тупость, дурачество, за лишние слова, за то, что не подумал сразу. Обещаю быть внимательнее к вашим чувствам и не обижать вас никогда .</p>
-            <div class="quote">💌 «Ваше спокойствие и улыбка для меня важнее любого эго» 💌</div>
+            <p>Простите за тупость, дурачество, за лишние слова, за то, что не подумал сразу. Обещаю быть внимательнее к вашим чувствам и не обижать вас никогда.</p>
+            <div class="quote">💌 «Ваше спокойствие и улыбка для меня важнее всего, хочу чтобы вы всегда радовались» 💌</div>
         </div>
 
         <div class="extra-apology" style="background: #fef6e8;">
@@ -354,11 +354,22 @@
             <p><span class="emoji-big">🌙</span> Рядом с вами даже ночь становится спокойной. Спокойная ночь только с вами в кроватки</p>
             <p><span class="emoji-big">🍫</span> Вы как любимая конфета — хочется снова и снова</p>
             <p><span class="emoji-big">📖</span> С вами хочется делиться даже самыми глупыми мыслями</p>
-            <p><span class="emoji-big">⭐</span> Вы самая красивая и самое любимре солнышко</p>
+            <p><span class="emoji-big">⭐</span> Вы самая красивая и самое любимое солнышко</p>
         </div>
 
         <!-- ГАЛЕРЕЯ ПОД КОМПЛИМЕНТАМИ -->
-        <div class="image-gallery" id="imageGallery"></div>
+        <div class="image-gallery" id="imageGallery">
+            <img class="gallery-img" src="assets/cat.jpg" alt="милое фото">
+            <img class="gallery-img" src="assets/formi.jpg" alt="милое фото">
+            <img class="gallery-img" src="assets/love.jpg" alt="милое фото">
+            <img class="gallery-img" src="assets/lublly.jpg" alt="милое фото">
+            <img class="gallery-img" src="assets/natebya.jpg" alt="милое фото">
+            <img class="gallery-img" src="assets/obnimashki.jpg" alt="милое фото">
+            <img class="gallery-img" src="assets/shactie.jpg" alt="милое фото">
+            <img class="gallery-img" src="assets/tebe.jpg" alt="милое фото">
+            <img class="gallery-img" src="assets/ti.jpg" alt="милое фото">
+            <img class="gallery-img" src="assets/us.jpg" alt="милое фото">
+        </div>
 
         <div class="footer-message">
             <span class="heart">❤️</span>  Я рядом и всегда готов всё исправить  <span class="heart">❤️</span>
@@ -370,8 +381,8 @@
 
 <div id="surpriseModal" class="modal">
     <div class="modal-content">
-        <div class="surprise-emoji">🌸🌸🌸</div>
-        <p>✨ Вечером Вас ждёт сюрприз ✨<br><br>Извините, что не вышло раньше 🌸</p>
+        <div class="surprise-emoji">🎁🌸✨</div>
+        <p>✨ Вечером Вас ждёт сюрприз ✨<br><br>🕰️ Время: <strong>18:00 — 18:30</strong><br><br>Извините, что не вышло раньше 🌸</p>
         <button class="close-modal" onclick="closeModal()">💗 Хорошо 💗</button>
     </div>
 </div>
@@ -401,14 +412,18 @@
         "Я люблю Вас не за что-то, а просто потому что Вы — это Вы"
     ];
 
+    // ВАШИ КАРТИНКИ ИЗ ПАПКИ assets
     const images = [
-        "https://cdn.pixabay.com/photo/2017/11/14/13/06/kitty-2948404_640.jpg",
-        "https://cdn.pixabay.com/photo/2019/08/19/07/55/corgi-4415649_640.jpg",
-        "https://cdn.pixabay.com/photo/2021/11/19/19/52/panda-6810197_640.jpg",
-        "https://cdn.pixabay.com/photo/2016/03/31/20/25/rabbit-1296408_640.png",
-        "https://cdn.pixabay.com/photo/2020/07/02/19/21/bear-5364484_640.jpg",
-        "https://cdn.pixabay.com/photo/2017/01/20/14/54/hedgehog-1994638_640.jpg",
-        "https://cdn.pixabay.com/photo/2015/11/17/13/13/puppy-1047521_640.jpg"
+        "assets/cat.jpg",
+        "assets/formi.jpg",
+        "assets/love.jpg",
+        "assets/lublly.jpg",
+        "assets/natebya.jpg",
+        "assets/obnimashki.jpg",
+        "assets/shactie.jpg",
+        "assets/tebe.jpg",
+        "assets/ti.jpg",
+        "assets/us.jpg"
     ];
 
     let currentImgIndex = 0;
@@ -427,9 +442,8 @@
 
     function updateGallery() {
         if (!gallery) return;
-        // Показываем 3 картинки: текущую и две следующие по кругу
         let indices = [];
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < 5; i++) {
             indices.push((currentImgIndex + i) % images.length);
         }
         gallery.innerHTML = indices.map(idx => 
