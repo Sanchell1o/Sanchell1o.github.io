@@ -60,7 +60,7 @@
         }
 
         .card {
-            max-width: 750px;
+            max-width: 800px;
             width: 100%;
             background: rgba(255, 255, 255, 0.96);
             border-radius: 48px;
@@ -83,13 +83,13 @@
         }
 
         .cute-pic {
-            max-width: 550px;
+            max-width: 600px;
             width: 95%;
-            border-radius: 55px;
-            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+            border-radius: 60px;
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.25);
             transition: all 0.3s;
             background: white;
-            padding: 15px;
+            padding: 18px;
             object-fit: cover;
             aspect-ratio: 1 / 1;
         }
@@ -231,32 +231,32 @@
             margin-bottom: 25px;
             background: #fff8e8;
             border-radius: 28px;
-            padding: 20px;
+            padding: 25px;
             text-align: center;
             border: 2px dashed #ffb7c5;
         }
 
         .find-differences h3 {
             color: #d44c6f;
-            margin-bottom: 15px;
-            font-size: 1.3rem;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
         }
 
         .differences-images {
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 40px;
             flex-wrap: wrap;
             margin-bottom: 15px;
         }
 
         .differences-img {
-            width: 220px;
-            height: 220px;
+            width: 280px;
+            height: 280px;
             object-fit: cover;
-            border-radius: 35px;
-            border: 3px solid #ffb7c5;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            border-radius: 40px;
+            border: 4px solid #ffb7c5;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
             transition: transform 0.2s;
             background: #f5f5f5;
         }
@@ -267,8 +267,8 @@
 
         .differences-text {
             color: #b95b7a;
-            font-size: 0.95rem;
-            margin-top: 10px;
+            font-size: 1rem;
+            margin-top: 15px;
             font-style: italic;
         }
 
@@ -276,17 +276,17 @@
             margin-top: 25px;
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 25px;
             flex-wrap: wrap;
         }
 
         .gallery-img {
-            width: 150px;
-            height: 150px;
+            width: 180px;
+            height: 180px;
             object-fit: cover;
-            border-radius: 35px;
+            border-radius: 40px;
             border: 3px solid #ffb7c5;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.12);
             transition: transform 0.2s;
             cursor: pointer;
             background: #f5f5f5;
@@ -323,7 +323,7 @@
         }
 
         .arrow-down span {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             display: inline-block;
         }
 
@@ -402,7 +402,7 @@
         .floating-heart {
             position: fixed;
             color: #ff4d6d;
-            font-size: 40px;
+            font-size: 45px;
             pointer-events: none;
             z-index: 2000;
             animation: flyHeart 1.5s ease-out forwards;
@@ -414,11 +414,11 @@
                 opacity: 1;
             }
             50% {
-                transform: scale(1.4) translateY(-70px);
+                transform: scale(1.5) translateY(-80px);
                 opacity: 1;
             }
             100% {
-                transform: scale(0.7) translateY(-200px);
+                transform: scale(0.8) translateY(-220px);
                 opacity: 0;
             }
         }
@@ -437,19 +437,19 @@
                 font-size: 1.1rem;
             }
             .cute-pic {
-                max-width: 350px;
+                max-width: 380px;
                 width: 95%;
             }
             .gallery-img {
-                width: 100px;
-                height: 100px;
+                width: 120px;
+                height: 120px;
             }
             .differences-img {
-                width: 150px;
-                height: 150px;
+                width: 180px;
+                height: 180px;
             }
             .arrow-down span {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
             .compliment-list p {
                 font-size: 0.9rem;
@@ -490,8 +490,7 @@
         <div class="extra-apology" style="background: #fef6e8;">
             <p>🤍 Вы — мой любимый человек</p>
         </div>
-
-        <!-- БЛОК "НАЙДИ 5 ОТЛИЧИЙ" -->
+        
         <div class="find-differences">
             <h3>🔍 Найди 5 отличий 🔍</h3>
             <div class="differences-images">
@@ -511,7 +510,20 @@
             </div>
             <button id="newComplimentBtn">🎀 Ещё комплимент 🎀</button>
         </div>
-
+        
+        <div class="image-gallery" id="imageGallery">
+            <img class="gallery-img" src="assets/cat.jpg" alt="милое фото">
+            <img class="gallery-img" src="assets/formi.jpg" alt="милое фото">
+            <img class="gallery-img" src="assets/love.jpg" alt="милое фото">
+            <img class="gallery-img" src="assets/lublly.jpg" alt="милое фото">
+            <img class="gallery-img" src="assets/natebya.jpg" alt="милое фото">
+            <img class="gallery-img" src="assets/obnimashki.jpg" alt="милое фото">
+            <img class="gallery-img" src="assets/shactie.jpg" alt="милое фото">
+            <img class="gallery-img" src="assets/tebe.jpg" alt="милое фото">
+            <img class="gallery-img" src="assets/ti.jpg" alt="милое фото">
+            <img class="gallery-img" src="assets/us.jpg" alt="милое фото">
+        </div>
+        
         <div class="compliment-list">
             <p><span class="emoji-big">🌸</span> Вы невероятно красивая</p>
             <p><span class="emoji-big">🍰</span> С вами даже обычный день становится праздником</p>
@@ -525,20 +537,6 @@
             <p><span class="emoji-big">🍀</span> С вами мне всегда везёт — это точно судьба</p>
             <p><span class="emoji-big">🍯</span> Вы сладкая, как мёд, и такая же полезная для души</p>
             <p><span class="emoji-big">✨</span> Вы — моя главная удача в этой жизни</p>
-        </div>
-
-        <!-- ГАЛЕРЕЯ ПОД КОМПЛИМЕНТАМИ -->
-        <div class="image-gallery" id="imageGallery">
-            <img class="gallery-img" src="assets/cat.jpg" alt="милое фото">
-            <img class="gallery-img" src="assets/formi.jpg" alt="милое фото">
-            <img class="gallery-img" src="assets/love.jpg" alt="милое фото">
-            <img class="gallery-img" src="assets/lublly.jpg" alt="милое фото">
-            <img class="gallery-img" src="assets/natebya.jpg" alt="милое фото">
-            <img class="gallery-img" src="assets/obnimashki.jpg" alt="милое фото">
-            <img class="gallery-img" src="assets/shactie.jpg" alt="милое фото">
-            <img class="gallery-img" src="assets/tebe.jpg" alt="милое фото">
-            <img class="gallery-img" src="assets/ti.jpg" alt="милое фото">
-            <img class="gallery-img" src="assets/us.jpg" alt="милое фото">
         </div>
 
         <div class="footer-message">
@@ -562,7 +560,7 @@
 </div>
 
 <script>
-    // ВАШИ КОМПЛИМЕНТЫ (сохранены полностью)
+    // ВАШИ КОМПЛИМЕНТЫ
     const compliments = [
         "С вами так спокойно и хорошо, как дома",
         "Я скучаю, когда вас нет рядом",
@@ -585,7 +583,6 @@
 
     const images = [
         "assets/cat.jpg",
-        "assets/mashacat.jpg",
         "assets/formi.jpg",
         "assets/love.jpg",
         "assets/lublly.jpg",
@@ -642,7 +639,7 @@
             indices.push((currentIndex + i) % images.length);
         }
         gallery.innerHTML = indices.map(idx => 
-            `<img class="gallery-img" src="${images[idx]}" alt="милое фото" onerror="this.src='https://cdn.pixabay.com/photo/2017/11/14/13/06/kitty-2948404_640.jpg'">`
+            `<img class="gallery-img" src="${images[idx]}" alt="милое фото">`
         ).join('');
     }
 
