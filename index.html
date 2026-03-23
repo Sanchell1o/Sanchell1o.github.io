@@ -60,7 +60,7 @@
         }
 
         .card {
-            max-width: 800px;
+            max-width: 900px;
             width: 100%;
             background: rgba(255, 255, 255, 0.96);
             border-radius: 48px;
@@ -92,6 +92,7 @@
             padding: 18px;
             object-fit: cover;
             aspect-ratio: 1 / 1;
+            cursor: pointer;
         }
 
         .content {
@@ -259,6 +260,7 @@
             box-shadow: 0 12px 24px rgba(0,0,0,0.15);
             transition: transform 0.2s;
             background: #f5f5f5;
+            cursor: pointer;
         }
 
         .differences-img:hover {
@@ -276,24 +278,26 @@
             margin-top: 25px;
             display: flex;
             justify-content: center;
-            gap: 25px;
+            gap: 30px;
             flex-wrap: wrap;
         }
 
         .gallery-img {
-            width: 180px;
-            height: 180px;
+            width: 220px;
+            height: 220px;
             object-fit: cover;
-            border-radius: 40px;
+            border-radius: 45px;
             border: 3px solid #ffb7c5;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.12);
-            transition: transform 0.2s;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+            transition: transform 0.2s, box-shadow 0.2s;
             cursor: pointer;
             background: #f5f5f5;
         }
 
         .gallery-img:hover {
-            transform: scale(1.08);
+            transform: scale(1.05);
+            box-shadow: 0 18px 32px rgba(0,0,0,0.2);
+            border-color: #ff9ab3;
         }
 
         .footer-message {
@@ -423,7 +427,30 @@
             }
         }
 
-        @media (max-width: 600px) {
+        /* Стиль для увеличенного изображения */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            z-index: 2001;
+            cursor: pointer;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(255,255,255,0.3);
+        }
+
+        @media (max-width: 700px) {
             .content {
                 padding: 25px 18px;
             }
@@ -441,8 +468,8 @@
                 width: 95%;
             }
             .gallery-img {
-                width: 120px;
-                height: 120px;
+                width: 150px;
+                height: 150px;
             }
             .differences-img {
                 width: 180px;
@@ -456,6 +483,13 @@
             }
             .emoji-big {
                 font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .gallery-img {
+                width: 130px;
+                height: 130px;
             }
         }
     </style>
@@ -490,12 +524,13 @@
         <div class="extra-apology" style="background: #fef6e8;">
             <p>🤍 Вы — мой любимый человек</p>
         </div>
-        
+
+        <!-- БЛОК "НАЙДИ 5 ОТЛИЧИЙ" -->
         <div class="find-differences">
             <h3>🔍 Найди 5 отличий 🔍</h3>
             <div class="differences-images">
-                <img class="differences-img" src="assets/mashacat.jpg" alt="картинка 1">
-                <img class="differences-img" src="assets/masha.jpg" alt="картинка 2">
+                <img class="differences-img" src="assets/mashacat.jpg" alt="картинка 1" onclick="openLightbox(this.src)">
+                <img class="differences-img" src="assets/masha.jpg" alt="картинка 2" onclick="openLightbox(this.src)">
             </div>
             <div class="differences-text">
                 💭 Посмотри внимательно на эти две картинки.<br>
@@ -510,20 +545,13 @@
             </div>
             <button id="newComplimentBtn">🎀 Ещё комплимент 🎀</button>
         </div>
-        
+
+        <!-- ГАЛЕРЕЯ ПОД КНОПКОЙ (БЕЗ cat.jpg) -->
         <div class="image-gallery" id="imageGallery">
-            <img class="gallery-img" src="assets/cat.jpg" alt="милое фото">
-            <img class="gallery-img" src="assets/formi.jpg" alt="милое фото">
-            <img class="gallery-img" src="assets/love.jpg" alt="милое фото">
-            <img class="gallery-img" src="assets/lublly.jpg" alt="милое фото">
-            <img class="gallery-img" src="assets/natebya.jpg" alt="милое фото">
-            <img class="gallery-img" src="assets/obnimashki.jpg" alt="милое фото">
-            <img class="gallery-img" src="assets/shactie.jpg" alt="милое фото">
-            <img class="gallery-img" src="assets/tebe.jpg" alt="милое фото">
-            <img class="gallery-img" src="assets/ti.jpg" alt="милое фото">
-            <img class="gallery-img" src="assets/us.jpg" alt="милое фото">
+            <!-- галерея будет заполняться через JavaScript -->
         </div>
-        
+
+        <!-- КОМПЛИМЕНТЫ ПОД ГАЛЕРЕЕЙ -->
         <div class="compliment-list">
             <p><span class="emoji-big">🌸</span> Вы невероятно красивая</p>
             <p><span class="emoji-big">🍰</span> С вами даже обычный день становится праздником</p>
@@ -559,6 +587,11 @@
     </div>
 </div>
 
+<!-- Лайтбокс для увеличенных изображений -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <img id="lightboxImg" src="">
+</div>
+
 <script>
     // ВАШИ КОМПЛИМЕНТЫ
     const compliments = [
@@ -581,8 +614,8 @@
         "Я люблю вас не за что-то, а просто потому что вы — это вы и главное душа"
     ];
 
+    // МАССИВ КАРТИНОК ДЛЯ ГАЛЕРЕИ (БЕЗ cat.jpg)
     const images = [
-        "assets/cat.jpg",
         "assets/formi.jpg",
         "assets/love.jpg",
         "assets/lublly.jpg",
@@ -603,6 +636,19 @@
     const closeModalBtn = document.getElementById("closeModalBtn");
     const gallery = document.getElementById("imageGallery");
     const arrowDown = document.getElementById("arrowDown");
+
+    // Функция для открытия увеличенного изображения
+    function openLightbox(src) {
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightboxImg");
+        lightboxImg.src = src;
+        lightbox.style.display = "flex";
+    }
+
+    function closeLightbox() {
+        const lightbox = document.getElementById("lightbox");
+        lightbox.style.display = "none";
+    }
 
     function createHeart(x, y) {
         const heart = document.createElement("div");
@@ -639,7 +685,7 @@
             indices.push((currentIndex + i) % images.length);
         }
         gallery.innerHTML = indices.map(idx => 
-            `<img class="gallery-img" src="${images[idx]}" alt="милое фото">`
+            `<img class="gallery-img" src="${images[idx]}" alt="милое фото" onclick="openLightbox('${images[idx]}')" onerror="this.src='https://cdn.pixabay.com/photo/2017/11/14/13/06/kitty-2948404_640.jpg'">`
         ).join('');
     }
 
