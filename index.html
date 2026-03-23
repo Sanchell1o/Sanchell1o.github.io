@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Маша прости меня ❤️</title>
+    <title>Ты прости меня ❤️</title>
     <style>
         * {
             margin: 0;
@@ -28,7 +28,6 @@
             border-radius: 48px;
             box-shadow: 0 25px 45px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 192, 203, 0.3);
             overflow: hidden;
-            backdrop-filter: blur(2px);
             transition: transform 0.2s ease;
         }
 
@@ -51,6 +50,8 @@
             transition: all 0.3s;
             background: white;
             padding: 8px;
+            object-fit: cover;
+            aspect-ratio: 1 / 1;
         }
 
         .content {
@@ -185,7 +186,7 @@
 
 <div class="card">
     <div class="image-container">
-        <img id="cuteImage" class="cute-pic" src="https://cdn.pixabay.com/photo/2020/10/01/21/07/cat-5618325_640.png" alt="милый котик">
+        <img id="cuteImage" class="cute-pic" src="https://i.pinimg.com/originals/3b/9a/3e/3b9a3e6f2a6b8c9d4e5f6a7b8c9d0e1f.jpg" alt="милый котик" onerror="this.src='https://placehold.co/300x300/ffb7c5/white?text=🐱❤️'">
     </div>
     <div class="content">
         <h1>Прости меня 🌸</h1>
@@ -194,8 +195,8 @@
         </div>
 
         <div class="apology-text">
-            💗 Я знаю, что был(а) не прав(а), и мне очень жаль. Твои чувства для меня важнее всего на свете. 
-            Давай не будем держать обиды? Я хочу, чтобы между нами снова было тепло и уютно.
+            💗 Я знаю, что был не прав и дурачок, и мне очень жаль. Твои чувства для меня важнее всего на свете. 
+            Давай не будем держать обиды? Я хочу, чтобы между нами снова было тепло и уютно. Я не могу без тебя, поэтому с утра тебя ждет сюрприз 
         </div>
 
         <div class="compliment-box">
@@ -215,13 +216,12 @@
         </div>
 
         <div class="footer-message">
-            <span class="heart">❤️</span>  я рядом и всегда готов(а) всё исправить  <span class="heart">❤️</span>
+            <span class="heart">❤️</span>  Я всегда готова всё исправить  <span class="heart">❤️</span>
         </div>
     </div>
 </div>
 
 <script>
-    // Магия комплиментов и милых картинок
     const compliments = [
         "Твои глаза — как два тёплых солнца ✨",
         "Ты делаешь этот мир в 100 раз уютнее 🧸",
@@ -236,13 +236,13 @@
     ];
 
     const images = [
-        "https://cdn.pixabay.com/photo/2017/11/14/13/06/kitty-2948404_640.jpg",
-        "https://cdn.pixabay.com/photo/2019/08/19/07/55/corgi-4415649_640.jpg",
-        "https://cdn.pixabay.com/photo/2021/11/19/19/52/panda-6810197_640.jpg",
-        "https://cdn.pixabay.com/photo/2016/03/31/20/25/rabbit-1296408_640.png",
-        "https://cdn.pixabay.com/photo/2020/10/01/21/07/cat-5618325_640.png",
-        "https://cdn.pixabay.com/photo/2020/07/02/19/21/bear-5364484_640.jpg",
-        "https://cdn.pixabay.com/photo/2017/01/20/14/54/hedgehog-1994638_640.jpg"
+        "https://cdn2.thecatapi.com/images/9j5.jpg",
+        "https://cdn2.thecatapi.com/images/MTY3ODgyMQ.jpg",
+        "https://cdn2.thecatapi.com/images/d4c.jpg",
+        "https://images.dog.ceo/breeds/shiba/shiba-14.jpg",
+        "https://images.dog.ceo/breeds/corgi-cardigan/n02113186_1020.jpg",
+        "https://images.dog.ceo/breeds/pomeranian/n02112018_1005.jpg",
+        "https://random-d.uk/api/111.jpg"
     ];
 
     let currentImgIndex = 0;
@@ -262,20 +262,16 @@
     }
 
     btnCompliment.addEventListener("click", () => {
-        // меняем комплимент
         complimentEl.textContent = getRandomCompliment();
-        // меняем картинку на новую милую
         changeImage();
-        // маленькая анимация: добавить эффект нажатия
         btnCompliment.style.transform = "scale(0.97)";
         setTimeout(() => {
             btnCompliment.style.transform = "";
         }, 120);
     });
 
-    // начальная установка — рандомный комплимент и другая картинка для разнообразия
+    // начальная настройка
     complimentEl.textContent = getRandomCompliment();
-    // установим не первую картинку, а случайную
     const startImgIndex = Math.floor(Math.random() * images.length);
     imgEl.src = images[startImgIndex];
     currentImgIndex = startImgIndex;
