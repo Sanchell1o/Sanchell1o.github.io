@@ -184,6 +184,29 @@
             font-size: 1.7rem;
         }
 
+        .image-gallery {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .gallery-img {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 20px;
+            border: 2px solid #ffb7c5;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+
+        .gallery-img:hover {
+            transform: scale(1.05);
+        }
+
         .footer-message {
             text-align: center;
             margin-top: 28px;
@@ -279,6 +302,10 @@
             .modal-content p {
                 font-size: 1.1rem;
             }
+            .gallery-img {
+                width: 55px;
+                height: 55px;
+            }
         }
     </style>
 </head>
@@ -296,14 +323,14 @@
 
         <div class="apology-text">
             💗 Я знаю, что был не прав, и мне очень жаль. Ваши чувства для меня важнее всего на свете. 
-               Я хочу, чтобы между нами снова было хорошо.
+            Я хочу, чтобы между нами снова было хорошо.
         </div>
 
         <div class="extra-apology">
             <p>📝 <strong>Я правда сожалею...</strong></p>
-            <p>Я не хотел Вас расстраивать. Иногда слова бывают глупыми, вы заслуживаете только самого лучшего отношения, тепла и заботы.</p>
-            <p>Мне правда стыдно за то, что вышло. Вы — важный человек в моей жизни, и я готов сделать всё, чтобы между нами снова было спокойно и мы любили друг к другу.</p>
-            <p>Простите за тупость, дурачество, за лишние слова, за то, что не подумал сразу. Обещаю быть внимательнее к вашим чувствам и не обижать вас.</p>
+            <p>Я не хотел вас расстраивать. Иногда слова бывают глупыми, вы заслуживаете только самого лучшего отношения, тепла и заботы.</p>
+            <p>Мне правда стыдно за то, что вышло. Вы — важный человек в моей жизни, и я готов сделать всё, чтобы между нами снова было спокойно и мы любили друг друга.</p>
+            <p>Простите за тупость, дурачество, за лишние слова, за то, что не подумал сразу. Обещаю быть внимательнее к вашим чувствам и не обижать вас никогда .</p>
             <div class="quote">💌 «Ваше спокойствие и улыбка для меня важнее любого эго» 💌</div>
         </div>
 
@@ -316,7 +343,7 @@
             <div class="compliment-text" id="complimentDisplay">
                 С вами так спокойно и хорошо
             </div>
-            <button id="newComplimentBtn">🎀 ещё комплимент 🎀</button>
+            <button id="newComplimentBtn">🎀 Ещё комплимент 🎀</button>
         </div>
 
         <div class="compliment-list">
@@ -326,9 +353,12 @@
             <p><span class="emoji-big">🐇</span> Вы самая милая и искренняя, кого я знаю</p>
             <p><span class="emoji-big">🌙</span> Рядом с вами даже ночь становится спокойной. Спокойная ночь только с вами в кроватки</p>
             <p><span class="emoji-big">🍫</span> Вы как любимая конфета — хочется снова и снова</p>
-            <p><span class="emoji-big">📖</span> С Вами хочется делиться даже самыми глупыми мыслями</p>
-            <p><span class="emoji-big">⭐</span> Вы светитесь изнутри, и это завораживает</p>
+            <p><span class="emoji-big">📖</span> С вами хочется делиться даже самыми глупыми мыслями</p>
+            <p><span class="emoji-big">⭐</span> Вы самая красивая и самое любимре солнышкот</p>
         </div>
+
+        <!-- ГАЛЕРЕЯ ПОД КОМПЛИМЕНТАМИ -->
+        <div class="image-gallery" id="imageGallery"></div>
 
         <div class="footer-message">
             <span class="heart">❤️</span>  Я рядом и всегда готов всё исправить  <span class="heart">❤️</span>
@@ -340,7 +370,7 @@
 
 <div id="surpriseModal" class="modal">
     <div class="modal-content">
-        <div class="surprise-emoji">🎁✨🎀</div>
+        <div class="surprise-emoji">🌸🌸🌸</div>
         <p>✨ Вечером Вас ждёт сюрприз ✨<br><br>Извините, что не вышло раньше 🌸</p>
         <button class="close-modal" onclick="closeModal()">💗 Хорошо 💗</button>
     </div>
@@ -353,7 +383,7 @@
         "У Вас очень тёплая улыбка, от неё на душе светлее",
         "Вы умеете слушать — это редкий дар",
         "С Вами легко быть собой, не притворяться",
-        "Вы самая  красивая",
+        "Вы самая красивая",
         "Я ценю Ваше терпение, хоть иногда и испытываю его",
         "Вы — человек, рядом с которым хочется расти",
         "Ваши глаза такие глубокие, в них хочется смотреть вечно",
@@ -371,7 +401,6 @@
         "Я люблю Вас не за что-то, а просто потому что Вы — это Вы"
     ];
 
-    // РЕАЛЬНЫЕ КАРТИНКИ (работают 100%)
     const images = [
         "https://cdn.pixabay.com/photo/2017/11/14/13/06/kitty-2948404_640.jpg",
         "https://cdn.pixabay.com/photo/2019/08/19/07/55/corgi-4415649_640.jpg",
@@ -389,15 +418,29 @@
     const btnCompliment = document.getElementById("newComplimentBtn");
     const surpriseBtn = document.getElementById("surpriseBtn");
     const modal = document.getElementById("surpriseModal");
+    const gallery = document.getElementById("imageGallery");
 
     function getRandomCompliment() {
         const randomIndex = Math.floor(Math.random() * compliments.length);
         return compliments[randomIndex];
     }
 
+    function updateGallery() {
+        if (!gallery) return;
+        // Показываем 3 картинки: текущую и две следующие по кругу
+        let indices = [];
+        for (let i = 0; i < 3; i++) {
+            indices.push((currentImgIndex + i) % images.length);
+        }
+        gallery.innerHTML = indices.map(idx => 
+            `<img class="gallery-img" src="${images[idx]}" alt="милое фото">`
+        ).join('');
+    }
+
     function changeImage() {
         currentImgIndex = (currentImgIndex + 1) % images.length;
         imgEl.src = images[currentImgIndex];
+        updateGallery();
     }
 
     function openModal() {
@@ -425,10 +468,12 @@
         }
     });
 
+    // Инициализация
     complimentEl.textContent = getRandomCompliment();
     const startImgIndex = Math.floor(Math.random() * images.length);
     imgEl.src = images[startImgIndex];
     currentImgIndex = startImgIndex;
+    updateGallery();
 </script>
 
 </body>
