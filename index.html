@@ -23,7 +23,6 @@
             overflow-x: hidden;
         }
 
-        /* Фоновые сердечки */
         .bg-hearts {
             position: fixed;
             top: 0;
@@ -61,7 +60,7 @@
         }
 
         .card {
-            max-width: 700px;
+            max-width: 750px;
             width: 100%;
             background: rgba(255, 255, 255, 0.96);
             border-radius: 48px;
@@ -84,13 +83,13 @@
         }
 
         .cute-pic {
-            max-width: 500px;
-            width: 90%;
-            border-radius: 50px;
+            max-width: 550px;
+            width: 95%;
+            border-radius: 55px;
             box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
             transition: all 0.3s;
             background: white;
-            padding: 12px;
+            padding: 15px;
             object-fit: cover;
             aspect-ratio: 1 / 1;
         }
@@ -166,7 +165,7 @@
         }
 
         .compliment-text {
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             font-weight: 500;
             color: #b95b7a;
             margin: 12px 0;
@@ -220,10 +219,11 @@
             align-items: center;
             gap: 12px;
             color: #5c3a44;
+            font-size: 1rem;
         }
 
         .emoji-big {
-            font-size: 1.7rem;
+            font-size: 1.8rem;
         }
 
         .find-differences {
@@ -245,16 +245,16 @@
         .differences-images {
             display: flex;
             justify-content: center;
-            gap: 25px;
+            gap: 30px;
             flex-wrap: wrap;
             margin-bottom: 15px;
         }
 
         .differences-img {
-            width: 180px;
-            height: 180px;
+            width: 220px;
+            height: 220px;
             object-fit: cover;
-            border-radius: 30px;
+            border-radius: 35px;
             border: 3px solid #ffb7c5;
             box-shadow: 0 8px 16px rgba(0,0,0,0.1);
             transition: transform 0.2s;
@@ -276,15 +276,15 @@
             margin-top: 25px;
             display: flex;
             justify-content: center;
-            gap: 18px;
+            gap: 20px;
             flex-wrap: wrap;
         }
 
         .gallery-img {
-            width: 130px;
-            height: 130px;
+            width: 150px;
+            height: 150px;
             object-fit: cover;
-            border-radius: 32px;
+            border-radius: 35px;
             border: 3px solid #ffb7c5;
             box-shadow: 0 8px 16px rgba(0,0,0,0.1);
             transition: transform 0.2s;
@@ -315,7 +315,6 @@
             100% { transform: scale(1.15); opacity: 1;}
         }
 
-        /* СТРЕЛОЧКА ВНИЗ */
         .arrow-down {
             text-align: center;
             margin: 10px 0 5px;
@@ -324,7 +323,7 @@
         }
 
         .arrow-down span {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             display: inline-block;
         }
 
@@ -333,7 +332,7 @@
                 transform: translateY(0);
             }
             50% {
-                transform: translateY(10px);
+                transform: translateY(12px);
             }
         }
 
@@ -403,7 +402,7 @@
         .floating-heart {
             position: fixed;
             color: #ff4d6d;
-            font-size: 35px;
+            font-size: 40px;
             pointer-events: none;
             z-index: 2000;
             animation: flyHeart 1.5s ease-out forwards;
@@ -415,11 +414,11 @@
                 opacity: 1;
             }
             50% {
-                transform: scale(1.3) translateY(-60px);
+                transform: scale(1.4) translateY(-70px);
                 opacity: 1;
             }
             100% {
-                transform: scale(0.6) translateY(-180px);
+                transform: scale(0.7) translateY(-200px);
                 opacity: 0;
             }
         }
@@ -438,26 +437,31 @@
                 font-size: 1.1rem;
             }
             .cute-pic {
-                max-width: 320px;
+                max-width: 350px;
                 width: 95%;
             }
             .gallery-img {
-                width: 85px;
-                height: 85px;
+                width: 100px;
+                height: 100px;
             }
             .differences-img {
-                width: 130px;
-                height: 130px;
+                width: 150px;
+                height: 150px;
             }
             .arrow-down span {
-                font-size: 1.6rem;
+                font-size: 1.8rem;
+            }
+            .compliment-list p {
+                font-size: 0.9rem;
+            }
+            .emoji-big {
+                font-size: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
 
-<!-- Фоновые сердечки -->
 <div class="bg-hearts" id="bgHearts"></div>
 
 <div class="card">
@@ -487,11 +491,11 @@
             <p>🤍 Вы — мой любимый человек</p>
         </div>
 
-        <!-- БЛОК "НАЙДИ 5 ОТЛИЧИЙ" ПОД "🤍 Вы — мой любимый человек" -->
+        <!-- БЛОК "НАЙДИ 5 ОТЛИЧИЙ" -->
         <div class="find-differences">
             <h3>🔍 Найди 5 отличий 🔍</h3>
             <div class="differences-images">
-                <img class="differences-img" src="assets/mashacat.jpg" alt="картинка 1" onerror="this.src='https://cdn.pixabay.com/photo/2017/11/14/13/06/kitty-2948404_640.jpg'">
+                <img class="differences-img" src="assets/mashacat.png" alt="картинка 1" onerror="this.src='https://cdn.pixabay.com/photo/2017/11/14/13/06/kitty-2948404_640.jpg'">
                 <img class="differences-img" src="assets/masha.jpg" alt="картинка 2" onerror="this.src='https://cdn.pixabay.com/photo/2019/08/19/07/55/corgi-4415649_640.jpg'">
             </div>
             <div class="differences-text">
@@ -508,7 +512,24 @@
             <button id="newComplimentBtn">🎀 Ещё комплимент 🎀</button>
         </div>
 
-        <!-- ГАЛЕРЕЯ ПОД КНОПКОЙ "Ещё комплимент" -->
+        <div class="compliment-list">
+            <p><span class="emoji-big">🌸</span> Вы невероятно красивая, даже когда сердитесь</p>
+            <p><span class="emoji-big">🍰</span> С вами даже обычный день становится праздником</p>
+            <p><span class="emoji-big">☁️</span> Вы как тёплое одеяло — уют и спокойствие</p>
+            <p><span class="emoji-big">🐇</span> Вы самая милая и искренняя, кого я знаю</p>
+            <p><span class="emoji-big">🌙</span> Рядом с вами даже ночь становится спокойной. Спокойная ночь только с вами в кроватки</p>
+            <p><span class="emoji-big">🍫</span> Вы как любимая конфета — хочется снова и снова</p>
+            <p><span class="emoji-big">📖</span> С вами хочется делиться даже самыми глупыми мыслями</p>
+            <p><span class="emoji-big">⭐</span> Вы самая красивая и самое любимое солнышко</p>
+            <p><span class="emoji-big">🌹</span> Ваша забота согревает даже в самые холодные дни</p>
+            <p><span class="emoji-big">🎨</span> Вы как художник — делаете этот мир красивее</p>
+            <p><span class="emoji-big">🕊️</span> С вами чувствуешь настоящий покой и безопасность</p>
+            <p><span class="emoji-big">🍀</span> С вами мне всегда везёт — это точно судьба</p>
+            <p><span class="emoji-big">🍯</span> Вы сладкая, как мёд, и такая же полезная для души</p>
+            <p><span class="emoji-big">✨</span> Вы — моя главная удача в этой жизни</p>
+        </div>
+
+        <!-- ГАЛЕРЕЯ ПОД КОМПЛИМЕНТАМИ -->
         <div class="image-gallery" id="imageGallery">
             <img class="gallery-img" src="assets/cat.jpg" alt="милое фото" onerror="this.src='https://cdn.pixabay.com/photo/2017/11/14/13/06/kitty-2948404_640.jpg'">
             <img class="gallery-img" src="assets/formi.jpg" alt="милое фото" onerror="this.src='https://cdn.pixabay.com/photo/2019/08/19/07/55/corgi-4415649_640.jpg'">
@@ -526,7 +547,6 @@
             <span class="heart">❤️</span>  Я рядом и всегда готов всё исправить  <span class="heart">❤️</span>
         </div>
 
-        <!-- СТРЕЛОЧКА ВНИЗ К СЮРПРИЗУ -->
         <div class="arrow-down" id="arrowDown">
             <span>👇</span>
         </div>
@@ -544,28 +564,25 @@
 </div>
 
 <script>
+    // ВАШИ КОМПЛИМЕНТЫ (сохранены полностью)
     const compliments = [
-        "С Вами так спокойно и хорошо, как дома",
-        "Я скучаю, когда Вас нет рядом",
+        "С вами так спокойно и хорошо, как дома",
+        "Я скучаю, когда вас нет рядом",
         "У Вас очень тёплая улыбка, от неё на душе светлее",
-        "Вы умеете слушать — это редкий дар",
-        "С Вами легко быть собой, не притворяться",
         "Вы самая красивая",
-        "Я ценю Ваше терпение, хоть иногда и испытываю его",
+        "Я ценю ваше терпение, хоть иногда и испытываю его",
         "Вы — человек, рядом с которым хочется расти",
         "Ваши глаза такие глубокие, в них хочется смотреть вечно",
+        "Ваши сисюлечки очень красивые и хорошие, так и хочется в них утонуть",
         "Вы умеете сделать день лучше просто своим присутствием",
-        "Мне нравится, как вы смеётесь над моими шутками",
-        "С Вами даже молчать комфортно",
+        "С вами даже молчать комфортно",
         "Вы — моя опора, хотя сама об этом не знаете",
         "Вы всегда знаете, что сказать, когда мне плохо",
-        "Рядом с Вами я становлюсь лучше — это правда",
+        "Рядом с вами я становлюсь лучше — это правда",
         "Вы — лучшее, что со мной случилось за последнее время",
-        "Мне нравится, какая вы разная: серьёзная и смешливая, уставшая и энергичная",
         "Вы умеете прощать — и я это очень ценю",
         "С Вами хочется делиться всем: радостью, грустью, глупыми мыслями",
-        "Вы не идеальны, и мне это нравится — потому что я тоже нет",
-        "Я люблю Вас не за что-то, а просто потому что Вы — это Вы"
+        "Я люблю вас не за что-то, а просто потому что вы — это вы и главное душа"
     ];
 
     const images = [
@@ -656,7 +673,6 @@
     surpriseBtn.addEventListener("click", openModal);
     closeModalBtn.addEventListener("click", closeModal);
 
-    // Прокрутка к сюрпризу при клике на стрелочку
     arrowDown.addEventListener("click", () => {
         surpriseBtn.scrollIntoView({ behavior: "smooth", block: "center" });
     });
