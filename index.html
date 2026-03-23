@@ -154,6 +154,16 @@
             box-shadow: 0 10px 18px rgba(212, 76, 111, 0.3);
         }
 
+        .surprise-btn {
+            background: #c97e9a;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(201, 126, 154, 0.3);
+        }
+
+        .surprise-btn:hover {
+            background: #b86686;
+        }
+
         .compliment-list {
             margin-top: 25px;
             text-align: left;
@@ -193,6 +203,70 @@
             100% { transform: scale(1.15); opacity: 1;}
         }
 
+        /* Стили для модального окна */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 48px;
+            padding: 35px 30px;
+            max-width: 320px;
+            text-align: center;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            animation: slideUp 0.4s ease;
+            margin: 20px;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-content p {
+            font-size: 1.25rem;
+            color: #d44c6f;
+            margin: 20px 0;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+
+        .modal-content .surprise-emoji {
+            font-size: 4rem;
+        }
+
+        .close-modal {
+            background: #ff9ab3;
+            padding: 10px 24px;
+            font-size: 1rem;
+            margin-top: 15px;
+            width: auto;
+            display: inline-block;
+        }
+
         @media (max-width: 500px) {
             .content {
                 padding: 25px 18px;
@@ -201,6 +275,9 @@
                 font-size: 1.6rem;
             }
             .compliment-text {
+                font-size: 1.1rem;
+            }
+            .modal-content p {
                 font-size: 1.1rem;
             }
         }
@@ -244,20 +321,37 @@
         </div>
 
         <div class="compliment-list">
-            <p><span class="emoji-big">🌸</span> Вы невероятно красивая, даже когда сердитесь</p>
-            <p><span class="emoji-big">🍰</span> С Вами даже обычный день становится праздником</p>
-            <p><span class="emoji-big">☁️</span> Вы как тёплое одеяло — уют и спокойствие</p>
-            <p><span class="emoji-big">🐇</span> Вы самая милая и искренняя, кого я знаю</p>
+             <p><span class="emoji-big">🌸</span> Вы невероятно красивая, даже когда сердитесь</p>
+             <p><span class="emoji-big">🍰</span> С Вами даже обычный день становится праздником</p>
+             <p><span class="emoji-big">☁️</span> Вы как тёплое одеяло — уют и спокойствие</p>
+             <p><span class="emoji-big">🐇</span> Вы самая милая и искренняя, кого я знаю</p>
+             <p><span class="emoji-big">🌙</span> Рядом с Вами даже ночь становится спокойной</p>
+             <p><span class="emoji-big">🍫</span> Вы как любимая конфета — хочется снова и снова</p>
+             <p><span class="emoji-big">🎵</span> Ваш голос — музыка, которую хочется слушать бесконечно</p>
+             <p><span class="emoji-big">📖</span> С Вами хочется делиться даже самыми глупыми мыслями</p>
+             <p><span class="emoji-big">☕</span> Вы — моё утреннее кофе, с Вас начинается хороший день</p>
+             <p><span class="emoji-big">⭐</span> Вы светитесь изнутри, и это завораживает</p>
         </div>
 
         <div class="footer-message">
             <span class="heart">❤️</span>  Я рядом и всегда готов всё исправить  <span class="heart">❤️</span>
         </div>
+
+        <!-- Новая кнопка СЮРПРИЗ -->
+        <button id="surpriseBtn" class="surprise-btn">🎁 СЮРПРИЗ 🎁</button>
+    </div>
+</div>
+
+<!-- Модальное окно -->
+<div id="surpriseModal" class="modal">
+    <div class="modal-content">
+        <div class="surprise-emoji">🎁✨🎀</div>
+        <p>✨ Вечером Вас ждёт сюрприз ✨<br><br>Извините, что не вышло раньше 🌸</p>
+        <button class="close-modal" onclick="closeModal()">💗 Хорошо 💗</button>
     </div>
 </div>
 
 <script>
-    // ЖИВЫЕ, ЧЕЛОВЕЧНЫЕ КОМПЛИМЕНТЫ (не ИИ-шаблоны)
     const compliments = [
         "С Вами так спокойно и хорошо, как дома",
         "Я скучаю, когда Вас нет рядом",
@@ -301,6 +395,8 @@
     const complimentEl = document.getElementById("complimentDisplay");
     const imgEl = document.getElementById("cuteImage");
     const btnCompliment = document.getElementById("newComplimentBtn");
+    const surpriseBtn = document.getElementById("surpriseBtn");
+    const modal = document.getElementById("surpriseModal");
 
     function getRandomCompliment() {
         const randomIndex = Math.floor(Math.random() * compliments.length);
@@ -312,6 +408,14 @@
         imgEl.src = images[currentImgIndex];
     }
 
+    function openModal() {
+        modal.style.display = "flex";
+    }
+
+    function closeModal() {
+        modal.style.display = "none";
+    }
+
     btnCompliment.addEventListener("click", () => {
         complimentEl.textContent = getRandomCompliment();
         changeImage();
@@ -319,6 +423,15 @@
         setTimeout(() => {
             btnCompliment.style.transform = "";
         }, 120);
+    });
+
+    surpriseBtn.addEventListener("click", openModal);
+
+    // Закрытие модального окна при клике вне его
+    window.addEventListener("click", (event) => {
+        if (event.target === modal) {
+            closeModal();
+        }
     });
 
     complimentEl.textContent = getRandomCompliment();
